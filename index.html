@@ -14,17 +14,17 @@
       button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2rem; }
       * { box-sizing: border-box; }
       :root{
-        --claret:#1f6b5a; --claret-deep:#14473a; --claret-soft:#dcefe6;
-        --claret-soft-light:#dcefe6; --claret-ring:#a3c7bc;
+        --claret:#6d1f30; --claret-deep:#14473a; --claret-soft:#f6e8ea;
+        --claret-soft-light:#f6e8ea; --claret-ring:#a3c7bc;
         --navy:#232c47; --gold:#b98a2f;
         --page-bg:#eceae6; --page-ink:#1d1a17; --page-sub:#5c564e;
         --card:#ffffff; --card-line:#ddd6cc;
         --app-bg:#f4f4f6; --app-ink:#191920; --app-sub:#6d6d78;
         --app-card:#ffffff; --app-line:#e4e4ea;
-        --seg-a:#7d2233; --seg-b:#e08a2e; --seg-c:#2e7d6b; --seg-d:#3d5a99; --seg-e:#8a8f3d;
+        --seg-a:#7d2233; --seg-b:#e08a2e; --seg-c:#7d2233; --seg-d:#3d5a99; --seg-e:#8a8f3d;
         /* 単位区分の意味色：テーマカラー（--claret）には一切連動させない固定色。
            全学共通＝金／学科＝上智クラレット／他学部・他学科＝緑。テーマ切替でも不変 */
-        --cat-common:#b07d2b; --cat-major:#7d2233; --cat-other:#2e7d6b;
+        --cat-common:#b07d2b; --cat-major:#7d2233; --cat-other:#7d2233;
         --cat-common-lt:#d9b96a; --cat-major-lt:#b26a78;
         color-scheme: light dark;
       }
@@ -34,7 +34,7 @@
           --card:#1e1b17; --card-line:#3a352d;
           --app-bg:#101014; --app-ink:#f2f2f5; --app-sub:#a2a2ae;
           --app-card:#1c1c22; --app-line:#2e2e37;
-          --claret-soft:#173a2e;
+          --claret-soft:#38121b;
           --claret-ring:#b6d5ca;
           /* 区分色のダーク用：明るめの固定バリエーション（テーマ色からは作らない） */
           --cat-common:#e0aa4e; --cat-major:#e58a9c; --cat-other:#52bfa6;
@@ -55,7 +55,7 @@
       .lead b{ color:var(--page-ink); }
       .mocknote{ display:inline-block; margin-top:10px; font-size:12.5px; font-weight:700; color:var(--claret);
         background:var(--claret-soft); border:1px solid var(--claret); border-radius:999px; padding:4px 12px; }
-      @media (prefers-color-scheme: dark){ .mocknote{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .mocknote{ color:#e3b7be; } }
 
       /* ---------- phone ---------- */
       .stage{ display:flex; justify-content:center; padding:26px 0 8px; }
@@ -88,7 +88,7 @@
       .tt{ display:grid; grid-template-columns:30px repeat(5,1fr); gap:5px; }
       .tt .dh{ text-align:center; font-size:13px; font-weight:700; padding:3px 0; border-radius:8px; color:var(--app-sub); }
       .tt .dh.today{ background:var(--claret-soft); color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .tt .dh.today{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .tt .dh.today{ color:#e3b7be; } }
       .tt .pl{ display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:7px; gap:1px; }
       .tt .pl b{ font-size:15px; }
       .tt .pl span{ font-size:8.6px; color:var(--app-sub); writing-mode:horizontal-tb; line-height:1.25; text-align:center; }
@@ -115,7 +115,7 @@
         font-size:10.5px; font-weight:700; font-family:inherit; min-height:48px; }
       .tabbar button svg{ width:21px; height:21px; }
       .tabbar button.on{ background:var(--claret-soft); color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .tabbar button.on{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .tabbar button.on{ color:#e3b7be; } }
 
       /* generic app cards */
       .acard{ background:var(--app-card); border:1px solid var(--app-line); border-radius:18px; padding:14px; margin-bottom:12px; }
@@ -135,10 +135,10 @@
       .syl-item .t{ font-weight:700; font-size:14.5px; line-height:1.4; }
       .syl-item .m{ font-size:12px; color:var(--app-sub); margin-top:3px; display:flex; flex-wrap:wrap; gap:4px 10px; }
       .badge{ display:inline-block; font-size:10px; font-weight:900; border-radius:999px; padding:1.5px 7px; vertical-align:1px; }
-      .b-pass{ background:#dcefe6; color:#14634a; } .b-part{ background:#fdeed3; color:#8a5a00; }
+      .b-pass{ background:#f6e8ea; color:#5e1a28; } .b-part{ background:#fdeed3; color:#8a5a00; }
       .b-not{ background:#fbe0e4; color:#93303f; } .b-lot{ background:#e3e9f7; color:#33508f; }
       @media (prefers-color-scheme: dark){
-        .b-pass{ background:#173a2e; color:#7fd6b2; } .b-part{ background:#403311; color:#f2cd7e; }
+        .b-pass{ background:#38121b; color:#cf8b98; } .b-part{ background:#403311; color:#f2cd7e; }
         .b-not{ background:#402027; color:#f2a3ae; } .b-lot{ background:#232f4d; color:#a9c0ee; }
       }
       .steps{ counter-reset:st; list-style:none; margin:8px 0; padding:0; }
@@ -151,12 +151,12 @@
       .task-item{ display:flex; gap:10px; padding:10px 0; border-bottom:1px dashed var(--app-line); font-size:13.5px; }
       .task-item:last-child{ border-bottom:0; }
       .task-item .due{ margin-left:auto; flex:0 0 auto; font-size:11.5px; font-weight:700; color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .task-item .due{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .task-item .due{ color:#d69aa5; } }
       .tl-item{ display:flex; gap:11px; padding:9px 0; border-bottom:1px dashed var(--app-line); }
       .tl-item:last-child{ border-bottom:0; }
       .tl-date{ flex:0 0 52px; text-align:center; background:var(--claret-soft); border-radius:10px; padding:4px 2px; height:fit-content; }
       .tl-date b{ display:block; font-size:14px; color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .tl-date b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .tl-date b{ color:#e3b7be; } }
       .tl-date span{ font-size:10px; color:var(--app-sub); }
       .tl-item .tt2{ font-size:13.5px; font-weight:700; }
       .tl-item .td2{ font-size:12px; color:var(--app-sub); }
@@ -166,10 +166,10 @@
         color:#fff; font-weight:900; font-size:16px; }
       .friend .fn{ font-weight:700; font-size:14px; }
       .friend .fm{ font-size:12px; color:var(--app-sub); }
-      .free-chip{ margin-left:auto; flex:0 0 auto; font-size:11px; font-weight:700; background:#dcefe6; color:#14634a; border-radius:999px; padding:3px 9px; }
-      @media (prefers-color-scheme: dark){ .free-chip{ background:#173a2e; color:#7fd6b2; } }
+      .free-chip{ margin-left:auto; flex:0 0 auto; font-size:11px; font-weight:700; background:#f6e8ea; color:#5e1a28; border-radius:999px; padding:3px 9px; }
+      @media (prefers-color-scheme: dark){ .free-chip{ background:#38121b; color:#cf8b98; } }
       .circle-cat{ font-size:12px; font-weight:900; color:var(--claret); letter-spacing:.06em; margin:14px 0 7px; }
-      @media (prefers-color-scheme: dark){ .circle-cat{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .circle-cat{ color:#d69aa5; } }
       .chips{ display:flex; flex-wrap:wrap; gap:6px; }
       .chip{ background:var(--app-card); border:1px solid var(--app-line); border-radius:999px; padding:5px 11px; font-size:12.5px; }
 
@@ -291,8 +291,8 @@
       .rev-easy-head{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:2px 0 10px; }
       .rev-easy-head .rev-once-pill{ font-size:12.5px; padding:4px 11px; }
       .rev-easy-head .rev-easy-txt{ font-size:14px; font-weight:900; color:var(--app-ink); }
-      .rev-done-note{ display:flex; align-items:center; gap:7px; background:#eef7f3; border:1px solid #bcdcc9; color:#14634a; border-radius:12px; padding:9px 12px; font-size:13px; font-weight:900; line-height:1.5; margin:0 0 10px; }
-      @media (prefers-color-scheme: dark){ .rev-done-note{ background:#14291f; border-color:#2c5540; color:#7fd6b2; } }
+      .rev-done-note{ display:flex; align-items:center; gap:7px; background:#eef7f3; border:1px solid #bcdcc9; color:#5e1a28; border-radius:12px; padding:9px 12px; font-size:13px; font-weight:900; line-height:1.5; margin:0 0 10px; }
+      @media (prefers-color-scheme: dark){ .rev-done-note{ background:#14291f; border-color:#2c5540; color:#cf8b98; } }
       /* 取れた単位グリッドは本編の時間割（.tt）と同じ部品・同じ行構成で出す。
          行高はシート側で明示し、1画面フィット用の #view-tt ルールと混ざらないようにする。
          取れた科目のセルだけ「標準の濃さ＋クラレットの枠＋✓バッジ」で立たせる。 */
@@ -311,7 +311,7 @@
       .rev-tap-note .rtn-note{ font-size:11px; color:var(--app-sub); line-height:1.5; margin:10px 0 0; padding-top:8px; border-top:1px solid var(--app-line); }
       .rev-sum{ background:var(--app-bg); border:1px solid var(--app-line); border-radius:14px; padding:11px 13px; font-size:13px; font-weight:700; line-height:1.6; margin:4px 0 12px; }
       .rev-sum b{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .rev-sum b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .rev-sum b{ color:#e3b7be; } }
       .rev-confirm{ width:100%; border:0; border-radius:14px; background:var(--claret); color:#fff; cursor:pointer;
         font-family:inherit; padding:13px 14px; min-height:54px; font-size:15px; font-weight:900; }
       .rev-confirm:active{ transform:scale(.99); }
@@ -329,7 +329,7 @@
       .pcard .tag{ display:inline-block; font-size:10.5px; font-weight:900; border-radius:999px; padding:2px 9px; margin-bottom:8px; }
       .tag-repro{ background:var(--claret-soft); color:var(--claret); }
       .tag-plus{ background:#e7ecfa; color:#2c4480; }
-      @media (prefers-color-scheme: dark){ .tag-plus{ background:#232f4d; color:#a9c0ee; } .tag-repro{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .tag-plus{ background:#232f4d; color:#a9c0ee; } .tag-repro{ color:#e3b7be; } }
       .vtable{ width:100%; border-collapse:collapse; font-size:13.5px; background:var(--card); border:1px solid var(--card-line); border-radius:16px; overflow:hidden; }
       .vtable th,.vtable td{ padding:9px 12px; border-bottom:1px solid var(--card-line); text-align:left; vertical-align:top; }
       .vtable tr:last-child td{ border-bottom:0; }
@@ -341,7 +341,7 @@
       .sources{ font-size:12.5px; color:var(--page-sub); }
       .sources li{ margin:5px 0; overflow-wrap:anywhere; }
       .sources a{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .sources a{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .sources a{ color:#d69aa5; } }
       footer{ margin-top:48px; font-size:12px; color:var(--page-sub); border-top:1px solid var(--card-line); padding-top:14px; }
     
       /* ===== standalone app build: full-screen, no explainer chrome ===== */
@@ -363,7 +363,7 @@
       /* twin: big total + flash on recalculation */
       .twin-total{ display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; background:var(--claret-soft); border-radius:14px; padding:10px 12px; margin-bottom:6px; }
       .twin-total .tt-num{ font-size:32px; font-weight:900; color:var(--claret); line-height:1; }
-      @media (prefers-color-scheme: dark){ .twin-total .tt-num{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .twin-total .tt-num{ color:#e3b7be; } }
       .twin-total .tt-unit{ font-size:12.5px; font-weight:700; }
       .twin-total .tt-remain{ margin-left:auto; font-size:12.5px; font-weight:900; }
       .twin-total.flash{ animation:twinflash .7s ease; }
@@ -382,7 +382,7 @@
       .grad-hero .gh-k b{ color:var(--app-ink); font-size:13.5px; }
       .grad-hero .gh-main{ display:flex; align-items:baseline; gap:5px; flex-wrap:wrap; margin-top:2px; }
       .grad-hero .gh-num{ font-size:34px; font-weight:900; color:var(--claret); line-height:1.05; }
-      @media (prefers-color-scheme: dark){ .grad-hero .gh-num{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .grad-hero .gh-num{ color:#e3b7be; } }
       .grad-hero .gh-unit{ font-size:13px; font-weight:800; }
       .grad-hero .gh-remain{ margin-left:auto; font-size:13px; font-weight:900; text-align:right; }
       .grad-hero .gh-sub{ font-size:12px; color:var(--app-sub); font-weight:600; margin-top:5px; line-height:1.55; }
@@ -396,14 +396,14 @@
       .grad-year .gy-head{ display:flex; align-items:baseline; gap:8px; }
       .grad-year .gy-head b{ font-size:15px; font-weight:900; }
       .grad-year .gy-head .gy-total{ margin-left:auto; font-size:12.5px; font-weight:800; color:var(--claret); text-align:right; }
-      @media (prefers-color-scheme: dark){ .grad-year .gy-head .gy-total{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .grad-year .gy-head .gy-total{ color:#e3b7be; } }
       .grad-year .gy-head .gy-none{ margin-left:auto; font-size:12px; font-weight:600; color:var(--app-sub); text-align:right; }
       .gy-row{ display:flex; align-items:center; gap:8px; font-size:13px; padding-top:5px; }
       .gy-row .gy-term{ flex:0 0 46px; font-weight:800; color:var(--app-sub); font-size:12px; }
       .gy-row .gy-val{ font-weight:900; font-size:14.5px; }
       .gy-row .gy-state{ font-size:10.5px; font-weight:900; border-radius:999px; padding:2px 8px; background:var(--app-line); color:var(--app-sub); }
       .gy-row .gy-state.now{ background:var(--claret-soft); color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .gy-row .gy-state.now{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .gy-row .gy-state.now{ color:#e3b7be; } }
       .gy-cats{ display:flex; flex-wrap:wrap; gap:4px 13px; font-size:12px; font-weight:700; margin-top:8px; }
       .gy-cats .n{ color:var(--app-sub); font-weight:600; }
       .grad-year.future{ opacity:.6; }
@@ -452,18 +452,18 @@
       .kv-rows .k{ flex:0 0 42%; font-weight:700; color:var(--app-sub); font-size:12.3px; line-height:1.45; }
       .kv-rows .v{ flex:1; font-weight:700; }
       .kv-rows .v small{ display:block; font-weight:500; color:var(--app-sub); font-size:11.5px; line-height:1.5; }
-      .al-flag{ display:inline-block; background:#dcefe6; color:#14634a; font-weight:900; border-radius:999px; padding:2px 12px; font-size:13px; }
-      @media (prefers-color-scheme: dark){ .al-flag{ background:#173a2e; color:#7fd6b2; } }
+      .al-flag{ display:inline-block; background:#f6e8ea; color:#5e1a28; font-weight:900; border-radius:999px; padding:2px 12px; font-size:13px; }
+      @media (prefers-color-scheme: dark){ .al-flag{ background:#38121b; color:#cf8b98; } }
       .loyola-link{ display:flex; align-items:center; gap:8px; width:100%; box-sizing:border-box; text-decoration:none;
         background:var(--app-card); border:1px solid var(--app-line); border-radius:14px; padding:12px 13px;
         font-weight:800; font-size:14px; color:var(--claret); margin-bottom:12px; }
-      @media (prefers-color-scheme: dark){ .loyola-link{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .loyola-link{ color:#d69aa5; } }
       .loyola-link .arr{ margin-left:auto; font-size:16px; }
       .plan li.sess{ cursor:pointer; width:100%; text-align:left; background:transparent; border:0; font-family:inherit; color:inherit; align-items:flex-start; }
       .plan li.sess:active{ transform:scale(.99); }
       .sess-chip{ margin-left:auto; flex:0 0 auto; align-self:center; font-size:10.5px; font-weight:900; border-radius:999px; padding:2.5px 9px; background:var(--app-line); color:var(--app-sub); }
-      .sess-chip.sa{ background:#dcefe6; color:#14634a; } .sess-chip.sl{ background:#fdeed3; color:#8a5a00; } .sess-chip.sx{ background:#fbe0e4; color:#93303f; }
-      @media (prefers-color-scheme: dark){ .sess-chip.sa{ background:#173a2e; color:#7fd6b2; } .sess-chip.sl{ background:#403311; color:#f2cd7e; } .sess-chip.sx{ background:#402027; color:#f2a3ae; } }
+      .sess-chip.sa{ background:#f6e8ea; color:#5e1a28; } .sess-chip.sl{ background:#fdeed3; color:#8a5a00; } .sess-chip.sx{ background:#fbe0e4; color:#93303f; }
+      @media (prefers-color-scheme: dark){ .sess-chip.sa{ background:#38121b; color:#cf8b98; } .sess-chip.sl{ background:#403311; color:#f2cd7e; } .sess-chip.sx{ background:#402027; color:#f2a3ae; } }
       .plan li.sess.cur{ background:var(--claret-soft); }
       .verdict-t{ width:100%; border-collapse:collapse; font-size:12.3px; }
       .verdict-t td,.verdict-t th{ padding:6px 7px; border-bottom:1px solid var(--app-line); text-align:left; vertical-align:top; }
@@ -488,9 +488,9 @@
       .demo .d-note{ font-size:11.3px; color:var(--app-sub); margin-top:5px; line-height:1.5; }
       .batch-row{ display:flex; align-items:center; gap:8px; font-size:13px; padding:5px 0; border-bottom:1px dashed var(--app-line); }
       .batch-row:last-of-type{ border-bottom:0; }
-      .batch-row .st{ margin-left:auto; font-size:11px; font-weight:900; border-radius:999px; padding:2px 9px; background:#dcefe6; color:#14634a; flex:0 0 auto; }
+      .batch-row .st{ margin-left:auto; font-size:11px; font-weight:900; border-radius:999px; padding:2px 9px; background:#f6e8ea; color:#5e1a28; flex:0 0 auto; }
       .batch-row .st.ex{ background:#fbe0e4; color:#93303f; }
-      @media (prefers-color-scheme: dark){ .batch-row .st{ background:#173a2e; color:#7fd6b2; } .batch-row .st.ex{ background:#402027; color:#f2a3ae; } }
+      @media (prefers-color-scheme: dark){ .batch-row .st{ background:#38121b; color:#cf8b98; } .batch-row .st.ex{ background:#402027; color:#f2a3ae; } }
       .batch-row button{ min-height:32px; padding:3px 10px; font-size:11.5px; }
       /* syllabus body text below the plan (Aoyama Hack style: small grey heading + body) */
       .syl-mini-h{ font-size:11.5px; font-weight:700; color:var(--app-sub); margin:0 0 6px; }
@@ -498,19 +498,19 @@
       .syl-div{ border:0; border-top:1px solid var(--app-line); margin:15px 0; }
       /* ===== location auto-record (案6+): no dedicated screen, no confirmation step.
          Auto-filled sessions show as a light chip + in the course detail. ===== */
-      .geo-chip{ display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:800; color:#14634a;
-        background:#dcefe6; border-radius:999px; padding:2.5px 9px; flex:0 0 auto; }
-      .geo-chip i{ width:7px; height:7px; border-radius:50%; background:#2e7d6b; display:inline-block; animation:geopulse 2s infinite; }
+      .geo-chip{ display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:800; color:#5e1a28;
+        background:#f6e8ea; border-radius:999px; padding:2.5px 9px; flex:0 0 auto; }
+      .geo-chip i{ width:7px; height:7px; border-radius:50%; background:#7d2233; display:inline-block; animation:geopulse 2s infinite; }
       .geo-chip .geo-ex{ font-size:9.5px; font-weight:600; opacity:.72; margin-left:1px; }
       @keyframes geopulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
       @media (prefers-reduced-motion: reduce){ .geo-chip i{ animation:none; } }
-      @media (prefers-color-scheme: dark){ .geo-chip{ background:#173a2e; color:#7fd6b2; } }
+      @media (prefers-color-scheme: dark){ .geo-chip{ background:#38121b; color:#cf8b98; } }
       .auto-badge{ display:inline-block; font-size:9.5px; font-weight:900; border-radius:999px; padding:1px 7px;
-        background:#dcefe6; color:#14634a; vertical-align:1px; margin-left:5px; letter-spacing:.03em; }
-      @media (prefers-color-scheme: dark){ .auto-badge{ background:#173a2e; color:#7fd6b2; } }
-      .sess-chip.saa{ background:#dcefe6; color:#14634a; }
+        background:#f6e8ea; color:#5e1a28; vertical-align:1px; margin-left:5px; letter-spacing:.03em; }
+      @media (prefers-color-scheme: dark){ .auto-badge{ background:#38121b; color:#cf8b98; } }
+      .sess-chip.saa{ background:#f6e8ea; color:#5e1a28; }
       .sess-chip.sal{ background:#fdeed3; color:#8a5a00; }
-      @media (prefers-color-scheme: dark){ .sess-chip.saa{ background:#173a2e; color:#7fd6b2; } .sess-chip.sal{ background:#403311; color:#f2cd7e; } }
+      @media (prefers-color-scheme: dark){ .sess-chip.saa{ background:#38121b; color:#cf8b98; } .sess-chip.sal{ background:#403311; color:#f2cd7e; } }
       .geo-set-row{ display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px dashed var(--app-line); font-size:13.5px; }
       .geo-set-row:last-of-type{ border-bottom:0; }
       .geo-set-row .gs-name{ font-weight:700; }
@@ -537,11 +537,11 @@
       .startup-opt .so-d{ display:block; font-size:11.5px; color:var(--app-sub); font-weight:600; line-height:1.45; margin-top:1px; }
       .startup-status{ font-size:12.5px; font-weight:700; line-height:1.6; margin:10px 0 0; }
       .startup-status b{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .startup-status b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .startup-status b{ color:#e3b7be; } }
       .startup-preview{ width:100%; margin-top:10px; border:1.5px solid var(--claret); background:var(--app-card);
         color:var(--claret); border-radius:14px; padding:11px 12px; cursor:pointer; font-family:inherit;
         font-size:13.5px; font-weight:800; min-height:48px; }
-      @media (prefers-color-scheme: dark){ .startup-preview{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .startup-preview{ color:#e3b7be; } }
       .startup-preview:active{ transform:scale(.99); }
 
       /* ===== タブの並び替え（マイページ設定） =====
@@ -589,7 +589,7 @@
       .credits-bar .cb-label b{ display:block; font-size:12.5px; color:var(--app-ink); letter-spacing:0; }
       .credits-bar .cb-num{ margin-left:auto; display:flex; align-items:baseline; gap:3px; flex:0 0 auto; }
       .credits-bar .cb-num strong{ font-size:28px; font-weight:900; line-height:1; color:var(--claret); letter-spacing:-.02em; }
-      @media (prefers-color-scheme: dark){ .credits-bar .cb-num strong{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .credits-bar .cb-num strong{ color:#e3b7be; } }
       .credits-bar .cb-num span{ font-size:12px; font-weight:800; color:var(--app-sub); }
       .credits-bar .cb-sub{ font-size:11px; color:var(--app-sub); font-weight:700; flex:0 0 auto; text-align:right; line-height:1.4; }
       /* next-class strip: same card language as credits bar */
@@ -608,7 +608,7 @@
       .tt .pl b{ font-size:16px; font-weight:900; line-height:1.1; }
       .tt .pl span{ font-size:8.2px; font-weight:600; }
       .tt .pl.today b{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .tt .pl.today b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .tt .pl.today b{ color:#e3b7be; } }
       .cell{ border-radius:16px; min-height:110px; padding:10px 7px 8px; }
       .cell.course{ box-shadow:inset 0 0 0 1px rgba(255,255,255,.14); }
       .cell .cn{ font-size:12px; font-weight:800; line-height:1.4; letter-spacing:.01em; }
@@ -662,7 +662,7 @@
       .credits-strip .cs-box .cs-v small{ font-size:11px; font-weight:800; color:var(--app-sub); }
       .credits-strip .cs-box .cs-k{ font-size:10.5px; font-weight:800; color:var(--app-sub); line-height:1.4; margin-top:2px; }
       .credits-strip .cs-box.hl .cs-v{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .credits-strip .cs-box.hl .cs-v{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .credits-strip .cs-box.hl .cs-v{ color:#e3b7be; } }
       /* 今学期の登録：通常は単位数の合計だけ。見出しをタップするとその場で内訳が開閉する（単位シートへは飛ばない） */
       div.credits-bar{ display:block; cursor:default; }
       div.credits-bar:active{ transform:none; }
@@ -679,7 +679,7 @@
       .term-card-head h3{ flex:1 1 auto; min-width:0; margin:0; }
       .term-card-total{ flex:0 0 auto; font-size:12.5px; font-weight:800; color:var(--app-sub); white-space:nowrap; padding-top:4px; }
       .term-card-total b{ font-size:16px; font-weight:900; color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .term-card-total b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .term-card-total b{ color:#e3b7be; } }
       .term-chev-btn{ flex:0 0 auto; width:36px; height:36px; min-width:36px; min-height:36px; border-radius:50%;
         border:1px solid var(--app-line); background:var(--app-bg); color:var(--app-ink); cursor:pointer;
         display:inline-flex; align-items:center; justify-content:center; padding:0; }
@@ -708,13 +708,13 @@
       .term-sub b{ margin-left:auto; color:var(--app-ink); font-weight:900; }
       .term-sub.total{ font-size:14.5px; color:var(--app-ink); font-weight:900; margin-top:3px; }
       .term-sub.total b{ color:var(--claret); font-size:17px; }
-      @media (prefers-color-scheme: dark){ .term-sub.total b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .term-sub.total b{ color:#e3b7be; } }
       /* 案D：バー内訳型 ― 合計を1本の横バーで区分ごとに色分けし、凡例＋科目リストを併記 */
       .term-bar-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px;
         font-size:12px; font-weight:700; color:var(--app-sub); margin:2px 0 7px; }
       .term-bar-head .tbh-total{ font-size:12.5px; white-space:nowrap; }
       .term-bar-head .tbh-total b{ font-size:17px; font-weight:900; color:var(--claret); margin-right:1px; }
-      @media (prefers-color-scheme: dark){ .term-bar-head .tbh-total b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .term-bar-head .tbh-total b{ color:#e3b7be; } }
       #tt-credits-detail .term-legend{ margin-top:11px; }
       .tb-common{ background:var(--cat-common); }
       .tb-major{ background:var(--cat-major); }
@@ -747,7 +747,7 @@
       .sem-gauge{ background:var(--app-bg); border:1px solid var(--app-line); border-radius:14px; padding:12px 13px; margin:0 0 12px; }
       .sem-gauge .sg-top{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
       .sem-gauge .sg-big{ font-size:19px; font-weight:900; color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .sem-gauge .sg-big{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .sem-gauge .sg-big{ color:#e3b7be; } }
       .sem-gauge .sg-big.danger{ color:#c22f47; }
       .sem-gauge .sg-txt{ font-size:12px; color:var(--app-sub); font-weight:700; }
       .sem-gauge .sg-bar{ height:12px; border-radius:999px; background:var(--app-line); overflow:hidden; margin-top:9px; display:flex; }
@@ -765,8 +765,8 @@
       .sem-cell .sc-st{ font-size:14.5px; font-weight:900; }
       .sem-cell .sc-src{ margin-left:auto; font-size:10px; font-weight:900; flex:0 0 auto; }
       .sem-cell .sc-topic{ font-size:10.8px; line-height:1.45; margin-top:3px; opacity:.85; display:block; }
-      .sem-cell.hon-a{ background:#2e7d6b; border-color:#2e7d6b; color:#fff; }
-      .sem-cell.auto-a{ background:#dcefe6; border-color:#bcdcc9; color:#14513c; }
+      .sem-cell.hon-a{ background:#7d2233; border-color:#7d2233; color:#fff; }
+      .sem-cell.auto-a{ background:#f6e8ea; border-color:#bcdcc9; color:#14513c; }
       .sem-cell.hon-l{ background:#a66a12; border-color:#a66a12; color:#fff; }
       .sem-cell.auto-l{ background:#fdeed3; border-color:#ecd9a8; color:#6d4d00; }
       .sem-cell.hon-x{ background:#c22f47; border-color:#c22f47; color:#fff; }
@@ -774,7 +774,7 @@
       .sem-cell.unk{ background:var(--app-line); border-color:transparent; border-style:dashed; color:var(--app-sub); }
       .sem-cell.unrec{ background:var(--app-card); border-style:dashed; color:var(--app-sub); }
       @media (prefers-color-scheme: dark){
-        .sem-cell.auto-a{ background:#173a2e; color:#7fd6b2; border-color:#24503e; }
+        .sem-cell.auto-a{ background:#38121b; color:#cf8b98; border-color:#24503e; }
         .sem-cell.auto-l{ background:#403311; color:#f2cd7e; border-color:#5c4a1a; }
         .sem-cell.auto-x{ background:#402027; color:#f2a3ae; border-color:#5c2b35; }
       }
@@ -785,7 +785,7 @@
       .sem-fix .sf-btns button{ flex:1; border-radius:11px; padding:10px 4px; font-size:13.5px; font-weight:800; cursor:pointer;
         font-family:inherit; border:1.5px solid var(--app-line); background:var(--app-card); color:var(--app-ink); min-height:48px; }
       .sem-fix .sf-btns button:active{ transform:scale(.97); }
-      .sem-fix .sf-btns button.fa{ background:#2e7d6b; border-color:#2e7d6b; color:#fff; }
+      .sem-fix .sf-btns button.fa{ background:#7d2233; border-color:#7d2233; color:#fff; }
       .sem-fix .sf-btns button.fl{ background:#fdeed3; border-color:#e8c87e; color:#6d4d00; }
       .sem-fix .sf-btns button.fx{ background:#fbe0e4; border-color:#eec3ca; color:#93303f; }
       .sem-fix.locked{ border-color:var(--app-line); }
@@ -813,7 +813,7 @@
       .tt .pl.pl-od b{ font-size:9px; letter-spacing:-.05em; }
       .tt .pl.now{ background:var(--claret-soft); }
       .tt .pl.now b, .tt .pl.now .pl-t{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .tt .pl.now b, .tt .pl.now .pl-t{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .tt .pl.now b, .tt .pl.now .pl-t{ color:#e3b7be; } }
       .tt .cell{ height:100%; min-height:0; }
       .cell.course{ box-shadow:none; overflow:visible; padding:8px 6px 7px; }
       .cell .cn{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
@@ -914,8 +914,8 @@
       .add-slot-note{ font-size:12.5px; color:var(--app-sub); margin:0 0 10px; line-height:1.6; }
       .add-slot-note b{ color:var(--app-ink); }
       .add-fit{ display:inline-block; font-size:10px; font-weight:900; border-radius:999px; padding:1.5px 7px;
-        background:#dcefe6; color:#14634a; vertical-align:1px; }
-      @media (prefers-color-scheme: dark){ .add-fit{ background:#173a2e; color:#7fd6b2; } }
+        background:#f6e8ea; color:#5e1a28; vertical-align:1px; }
+      @media (prefers-color-scheme: dark){ .add-fit{ background:#38121b; color:#cf8b98; } }
 
       /* ===== v9: visible empty slots + comparison-mock pastel palette =====
          Empty slots are no longer transparent blanks: like the comparison mock
@@ -1003,7 +1003,7 @@
       button.att.pressing{ transform:scale(.96); filter:brightness(.96); }
       .att.a-on span{ color:#1d7a5c; } .att.l-on span{ color:#b06f0e; } .att.x-on span{ color:#c22f47; }
       @media (prefers-color-scheme: dark){
-        .att.a-on span{ color:#7fd6b2; } .att.l-on span{ color:#f2cd7e; } .att.x-on span{ color:#f2a3ae; }
+        .att.a-on span{ color:#cf8b98; } .att.l-on span{ color:#f2cd7e; } .att.x-on span{ color:#f2a3ae; }
       }
       .att.full{ opacity:.55; }
       /* long-press adjustment sheet (Aoyama Hack style) */
@@ -1182,7 +1182,7 @@
       .rg-step .sb{ font-size:12px; color:var(--app-sub); margin-top:2px; line-height:1.6; }
       .rg-banner{ background:var(--claret-soft); border-radius:12px; padding:11px 13px; font-size:12.5px; font-weight:700; margin-top:2px; line-height:1.6; }
       .rg-banner b{ color:var(--claret-deep); }
-      @media (prefers-color-scheme: dark){ .rg-banner b{ color:#a9dccb; } }
+      @media (prefers-color-scheme: dark){ .rg-banner b{ color:#e3b7be; } }
       .rg-small-note{ font-size:11.5px; color:var(--app-sub); margin:10px 0 0; padding-left:16px; line-height:1.6; }
       .rg-small-note li{ margin-bottom:4px; }
       .rg-caveats{ margin:0; padding-left:17px; }
@@ -1242,7 +1242,7 @@
         background:transparent; color:var(--claret); font-weight:900; font-size:12.5px;
         cursor:pointer; font-family:inherit; min-height:36px;
       }
-      @media (prefers-color-scheme: dark){ .rg-detail-link{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .rg-detail-link{ color:#d69aa5; } }
       .rg-detail-link .arr{ margin-left:auto; font-size:16px; font-weight:900; }
       .rg-detail-link:active{ opacity:.65; }
       .rg-place-btn{
@@ -1292,7 +1292,7 @@
       .drawer-item.on{ background:var(--claret-soft); color:var(--claret); }
       .drawer-item.on svg{ color:var(--claret); }
       @media (prefers-color-scheme: dark){
-        .drawer-item.on{ color:#a9dccb; } .drawer-item.on svg{ color:#a9dccb; }
+        .drawer-item.on{ color:#e3b7be; } .drawer-item.on svg{ color:#e3b7be; }
       }
       .drawer-foot{ margin-top:auto; border-top:1px solid var(--app-line); padding-top:10px; }
       .drawer-settings .ds-note{ margin-left:auto; flex:0 0 auto; font-size:10.5px; font-weight:600; color:var(--app-sub); text-align:right; line-height:1.4; }
@@ -1337,13 +1337,13 @@
       .day-chips button.is-today:not(.on){ border-color:var(--claret); color:var(--app-ink); }
       .day-chips button.is-today:not(.on) .dc-date{ color:var(--claret); }
       .day-chips button.is-today .dc-date{ font-weight:900; }
-      @media (prefers-color-scheme: dark){ .day-chips button.is-today:not(.on) .dc-date{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .day-chips button.is-today:not(.on) .dc-date{ color:#d69aa5; } }
       .day-summary{ background:var(--app-card); border:1px solid var(--app-line); border-radius:14px; padding:8px 12px; margin:0 0 8px; min-width:0; }
       .day-sum-row{ display:flex; flex-wrap:wrap; gap:2px 14px; font-size:12px; color:var(--app-sub); font-weight:600; line-height:1.45; }
       .day-sum-row span{ min-width:0; overflow-wrap:anywhere; }
       .day-sum-row b{ color:var(--app-ink); font-weight:900; font-size:13px; }
       .day-next{ font-size:12.5px; font-weight:800; color:var(--claret); margin-top:3px; line-height:1.45; overflow-wrap:anywhere; word-break:break-word; }
-      @media (prefers-color-scheme: dark){ .day-next{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .day-next{ color:#d69aa5; } }
       /* 予定・課題の追加：Grit風の白い丸＋ボタン（タイトル行の右端）。
          アプリバーの丸ボタンと同じ言語で、画面に馴染ませる。 */
       .day-add-btn{ width:44px; height:44px; min-width:44px; min-height:44px; padding:0; border-radius:50%;
@@ -1429,7 +1429,7 @@
       .filter-opts .fo-main{ flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:1px; }
       .filter-opts .fo-t{ font-size:14.5px; font-weight:800; line-height:1.35; }
       .filter-opts button.on .fo-t{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .filter-opts button.on .fo-t{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .filter-opts button.on .fo-t{ color:#d69aa5; } }
       .filter-opts .fo-d{ font-size:11.5px; color:var(--app-sub); font-weight:600; line-height:1.45; }
       .filter-opts .fo-check{ flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:var(--claret);
         color:#fff; font-size:13px; font-weight:900; display:none; align-items:center; justify-content:center; line-height:1; }
@@ -1607,7 +1607,7 @@
       .task-today{ font-size:13.5px; font-weight:800; color:var(--app-ink); margin:0 2px 10px;
         white-space:nowrap; line-height:1.5; }
       .task-today .tt-wd{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .task-today .tt-wd{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .task-today .tt-wd{ color:#d69aa5; } }
       /* 並び替えヒント（リスト上部に小さく明示）＋手動順のリセット */
       .task-sort-hint{ font-size:11.5px; font-weight:700; color:var(--app-sub); margin:0 2px 10px;
         display:flex; align-items:center; gap:8px; flex-wrap:wrap; line-height:1.5; }
@@ -1642,7 +1642,7 @@
       .task-due-line{ display:flex; flex-wrap:wrap; gap:3px 10px; align-items:baseline; margin-top:3px; }
       .task-due{ font-size:12.5px; font-weight:800; color:var(--task-ink); font-variant-numeric:tabular-nums; }
       .task-remain{ font-size:12px; font-weight:900; color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .task-remain{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .task-remain{ color:#d69aa5; } }
       .task-remain.over{ color:#c22f47; }
       @media (prefers-color-scheme: dark){ .task-remain.over{ color:#f2a3ae; } }
       .task-bell{ font-size:11.5px; font-weight:700; color:var(--app-sub); display:inline-flex; align-items:center; gap:3px; }
@@ -1734,7 +1734,7 @@
       .sheet-map{ z-index:8; }
       .chip-room{ cursor:pointer; font-family:inherit; color:var(--app-ink); display:inline-flex; align-items:center; gap:5px; }
       .chip-room .room-go{ color:var(--claret); font-weight:900; font-size:14px; line-height:1; }
-      @media (prefers-color-scheme: dark){ .chip-room .room-go{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .chip-room .room-go{ color:#d69aa5; } }
       .map-target{ background:var(--claret); color:#fff; border-radius:18px; padding:14px 16px; margin-bottom:12px; }
       .map-target .mt-room{ font-size:21px; font-weight:900; line-height:1.35; }
       .map-target .mt-sub{ font-size:12.5px; opacity:.9; margin-top:2px; }
@@ -1865,7 +1865,7 @@
       .aff-toggle .ph{ margin-bottom:0; }
       .aff-summary{ font-size:13px; font-weight:800; color:var(--app-ink); line-height:1.45; overflow-wrap:anywhere; }
       .aff-summary.unset{ color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .aff-summary.unset{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .aff-summary.unset{ color:#d69aa5; } }
       .aff-icon{ flex:0 0 auto; width:32px; height:32px; border-radius:50%;
         background:var(--app-bg); border:1.5px solid var(--app-line); color:var(--claret);
         display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:900; line-height:1;
@@ -1891,7 +1891,7 @@
       .tabmap-room-cand .rc-arrow{ margin-left:auto; flex:0 0 auto; color:var(--claret); font-weight:900; }
       .tabmap-room-cand .rc-kind{ flex:0 0 auto; font-size:10px; font-weight:900; border-radius:999px; padding:2px 8px;
         background:var(--claret-soft); color:var(--claret); }
-      @media (prefers-color-scheme: dark){ .tabmap-room-cand .rc-kind{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .tabmap-room-cand .rc-kind{ color:#d69aa5; } }
       .tabmap-room-cand .rc-token.fac-token{ font-size:13.5px; white-space:normal; line-height:1.35; }
       .tabmap-room-none{ font-size:12.5px; font-weight:700; color:var(--app-sub); margin:2px; }
       /* classroom-number search (map tab top): reuses the sheet's room
@@ -1914,7 +1914,7 @@
       .tabmap-room-status.ok{ color:var(--claret); }
       .tabmap-room-status.err{ color:#c22f47; }
       @media (prefers-color-scheme: dark){
-        .tabmap-room-status.ok{ color:#93d2bd; }
+        .tabmap-room-status.ok{ color:#d69aa5; }
         .tabmap-room-status.err{ color:#f2a3ae; }
       }
 
@@ -2168,7 +2168,7 @@
       button.kf{ border:0; font-family:inherit; cursor:pointer; width:100%; min-height:44px; }
       button.kf:active{ transform:scale(.97); }
       .kf .s .room-go{ color:var(--claret); font-weight:900; }
-      @media (prefers-color-scheme: dark){ .kf .s .room-go{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .kf .s .room-go{ color:#d69aa5; } }
       .mini-rows{ list-style:none; margin:0 0 16px; padding:0; font-size:13.5px; }
       .mini-rows li{ display:flex; justify-content:space-between; gap:12px; padding:7px 2px;
         border-bottom:1px dashed var(--app-line); }
@@ -2582,7 +2582,7 @@
       .friend-share-row{ display:flex; align-items:center; gap:8px; padding-left:53px; font-size:12px; font-weight:700; color:var(--app-sub); }
       .friend-share-row .fsr-state{ font-weight:900; color:var(--claret); }
       .friend-share-row .fsr-state.off{ color:var(--app-sub); }
-      @media (prefers-color-scheme: dark){ .friend-share-row .fsr-state{ color:#93d2bd; } .friend-share-row .fsr-state.off{ color:var(--app-sub); } }
+      @media (prefers-color-scheme: dark){ .friend-share-row .fsr-state{ color:#d69aa5; } .friend-share-row .fsr-state.off{ color:var(--app-sub); } }
       .friend-share-row .sw{ margin-left:auto; flex:0 0 auto; padding:6px 2px; margin-top:-6px; margin-bottom:-6px; margin-right:-2px; }
       .friend-share-row.is-off{ opacity:.55; }
       /* 友達スケジュールシート */
@@ -2591,7 +2591,7 @@
       .fr-head .fr-meta{ font-size:12px; color:var(--app-sub); font-weight:600; line-height:1.5; }
       .fr-mode{ display:inline-block; font-size:11px; font-weight:900; border-radius:999px; padding:2.5px 10px;
         background:var(--claret-soft); color:var(--claret); margin:2px 0 10px; }
-      @media (prefers-color-scheme: dark){ .fr-mode{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .fr-mode{ color:#d69aa5; } }
       .fr-mode.busy{ background:#fdeed3; color:#8a5a00; }
       @media (prefers-color-scheme: dark){ .fr-mode.busy{ background:#403311; color:#f2cd7e; } }
       .fr-free-list{ list-style:none; margin:0; padding:0; }
@@ -2620,7 +2620,7 @@
          決定的に生成するドットパターンで、実コードではない）。 */
       .me-userid{ display:inline-block; margin-top:4px; font-size:12px; font-weight:900; color:var(--claret);
         background:var(--claret-soft); border-radius:999px; padding:2px 10px; letter-spacing:.02em; }
-      @media (prefers-color-scheme: dark){ .me-userid{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .me-userid{ color:#d69aa5; } }
       .pf-id-wrap{ display:flex; align-items:stretch; border:1.5px solid var(--app-line); border-radius:12px;
         background:var(--app-card); overflow:hidden; }
       .pf-id-wrap:focus-within{ outline:2.5px solid var(--claret); outline-offset:1px; }
@@ -2644,7 +2644,7 @@
         border:1px solid transparent; background:var(--app-card); color:var(--claret);
         box-shadow:0 1px 3px rgba(20,16,24,.05); cursor:pointer; flex:0 0 auto;
         display:inline-flex; align-items:center; justify-content:center; }
-      @media (prefers-color-scheme: dark){ .friend-add-btn{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .friend-add-btn{ color:#d69aa5; } }
       .friend-add-btn:active{ transform:scale(.93); }
       /* 友だち追加シート */
       #sheet-add-friend .acard{ margin-bottom:0; }
@@ -2656,14 +2656,14 @@
       .myqr-who{ flex:1 1 auto; min-width:0; }
       .myqr-who .mw-name{ font-size:14.5px; font-weight:900; line-height:1.4; overflow-wrap:anywhere; }
       .myqr-who .mw-id{ font-size:12.5px; font-weight:900; color:var(--claret); margin-top:1px; }
-      @media (prefers-color-scheme: dark){ .myqr-who .mw-id{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .myqr-who .mw-id{ color:#d69aa5; } }
       .myqr-who .mw-note{ font-size:11px; color:var(--app-sub); line-height:1.5; margin-top:3px; }
       .add-act-row{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px; }
       .add-act-btn{ border:0; border-radius:13px; padding:12px 8px; cursor:pointer; font-family:inherit;
         font-size:13.5px; font-weight:900; min-height:50px; display:flex; align-items:center; justify-content:center; gap:7px; }
       .add-act-btn.primary{ background:var(--claret); color:#fff; }
       .add-act-btn.ghost{ background:var(--app-card); color:var(--claret); border:1.5px solid var(--claret); }
-      @media (prefers-color-scheme: dark){ .add-act-btn.ghost{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .add-act-btn.ghost{ color:#d69aa5; } }
       .add-act-btn:active{ transform:scale(.98); }
       .add-act-btn svg{ width:19px; height:19px; flex:0 0 auto; }
       .id-search-row{ display:flex; gap:8px; }
@@ -2678,7 +2678,7 @@
       .cand-row .cand-name{ font-size:14px; font-weight:800; line-height:1.4; }
       .cand-row .cand-meta{ font-size:11.5px; color:var(--app-sub); line-height:1.5; }
       .cand-row .cand-meta b{ color:var(--claret); font-weight:900; }
-      @media (prefers-color-scheme: dark){ .cand-row .cand-meta b{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .cand-row .cand-meta b{ color:#d69aa5; } }
       .cand-add{ flex:0 0 auto; border:0; border-radius:999px; background:var(--claret); color:#fff;
         font-family:inherit; font-size:12.5px; font-weight:900; padding:8px 16px; cursor:pointer; min-height:40px; }
       .cand-add:active{ transform:scale(.96); }
@@ -2690,7 +2690,7 @@
       .myqr-big .qr-box{ padding:10px; border-radius:16px; }
       .myqr-big .mw-name{ font-size:17px; font-weight:900; margin-top:14px; line-height:1.4; }
       .myqr-big .mw-id{ font-size:15px; font-weight:900; color:var(--claret); margin-top:2px; letter-spacing:.02em; }
-      @media (prefers-color-scheme: dark){ .myqr-big .mw-id{ color:#93d2bd; } }
+      @media (prefers-color-scheme: dark){ .myqr-big .mw-id{ color:#d69aa5; } }
       .myqr-big .avatar{ width:52px; height:52px; font-size:20px; margin-bottom:12px; }
       /* QR読み取りシート（モック） */
       .scan-frame{ position:relative; aspect-ratio:1/1; max-width:280px; margin:6px auto 12px;
@@ -2762,7 +2762,7 @@
               <h3>友だち</h3>
               <div class="friend">
                 <button type="button" class="friend-open" data-open-friend="aoi" aria-label="あおいの今日のスケジュールを見る">
-                  <span class="avatar" style="background:#2e7d6b">あ</span>
+                  <span class="avatar" style="background:#7d2233">あ</span>
                   <span class="friend-txt"><span class="fn">あおい</span><br /><span class="fm">経済学部 1年 ― @aoi_sophia ・ 火曜は2限まで</span></span>
                   <span class="free-chip">3限〜 空き</span>
                   <span class="friend-chev" aria-hidden="true">›</span>
@@ -2950,7 +2950,7 @@
                 <p class="mcal-hint" aria-hidden="true">← 左右にスワイプで月を移動 →</p>
               </div>
               <div class="mcal-legend">
-                <span><i id="mcal-leg-course" style="background:#dcefe6"></i>授業（時間割から毎週展開）</span>
+                <span><i id="mcal-leg-course" style="background:#f6e8ea"></i>授業（時間割から毎週展開）</span>
                 <span><i style="background:var(--claret)"></i>自分の予定</span>
                 <span><i style="background:var(--task-soft);box-shadow:inset 0 0 0 1px var(--task)"></i>課題の締切</span>
                 <span><i style="background:#d92c2c;border-radius:50%"></i>今日</span>
@@ -3171,7 +3171,7 @@
                 <div class="myqr-row">
                   <span class="qr-box"><canvas id="my-qr-mini" width="92" height="92" role="img" aria-label="自分のQRコード（モック）"></canvas></span>
                   <span class="myqr-who">
-                    <span style="display:flex;align-items:center;gap:9px"><span class="avatar" id="fr-my-avatar" style="background:#1f6b5a;width:38px;height:38px;font-size:15px">ソ</span><span><span class="mw-name" id="fr-my-name" style="display:block">ソフィアン（モック）</span><span class="mw-id" id="fr-my-id" style="display:block">@ohyuu_01</span></span></span>
+                    <span style="display:flex;align-items:center;gap:9px"><span class="avatar" id="fr-my-avatar" style="background:#6d1f30;width:38px;height:38px;font-size:15px">ソ</span><span><span class="mw-name" id="fr-my-name" style="display:block">ソフィアン（モック）</span><span class="mw-id" id="fr-my-id" style="display:block">@ohyuu_01</span></span></span>
                     <span class="mw-note" style="display:block">あなたのQRコードとIDです。表示名・@ID・アイコンはマイページのプロフィール編集で変えられます。</span>
                   </span>
                 </div>
@@ -3202,7 +3202,7 @@
             <div class="screen">
               <div class="panel">
                 <div class="myqr-big">
-                  <span class="avatar" id="myqr-avatar" style="background:#1f6b5a">ソ</span>
+                  <span class="avatar" id="myqr-avatar" style="background:#6d1f30">ソ</span>
                   <span class="qr-box"><canvas id="my-qr-big" width="220" height="220" role="img" aria-label="自分のQRコード（モック・拡大表示）"></canvas></span>
                   <span class="mw-name" id="myqr-name">ソフィアン（モック）</span>
                   <span class="mw-id" id="myqr-id">@ohyuu_01</span>
@@ -3690,7 +3690,7 @@
             <div class="screen">
               <div class="panel">
                 <div class="pf-preview">
-                  <span class="avatar" id="pf-avatar" style="background:#1f6b5a;width:56px;height:56px;font-size:21px">ソ</span>
+                  <span class="avatar" id="pf-avatar" style="background:#6d1f30;width:56px;height:56px;font-size:21px">ソ</span>
                   <span style="flex:1;min-width:0">
                     <span class="pv-name" id="pf-pv-name" style="display:block">ソフィアン（モック）</span>
                     <span class="pv-meta" id="pf-pv-id" style="display:block;font-weight:900;color:var(--claret)">@ohyuu_01</span>
@@ -3768,7 +3768,7 @@
             <div class="appbar"><button class="abar-btn btn-menu" type="button" aria-label="メニューを開く" aria-expanded="false"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button><div class="sem-pill">マイページ <small id="me-campus-label">上智大学 四谷キャンパス</small></div></div>
             <div class="acard" aria-label="プロフィール">
               <div class="me-card-main">
-                <span class="avatar" id="me-avatar" style="background:#1f6b5a;width:56px;height:56px;font-size:21px">ソ</span>
+                <span class="avatar" id="me-avatar" style="background:#6d1f30;width:56px;height:56px;font-size:21px">ソ</span>
                 <span class="me-card-txt">
                   <span class="me-name" id="me-name">ソフィアン（モック）</span>
                   <span class="me-userid" id="me-userid">@ohyuu_01</span>
@@ -4034,7 +4034,7 @@
         if (typeof window.__rgTtChanged === "function"){ try{ window.__rgTtChanged(); }catch(e){} }
       }
       var CHECK_LABEL = { pass:["照合：合格","b-pass"], part:["照合：一部","b-part"], not:["照合：未確認","b-not"] };
-      var SEGCOLORS = ["#7d2233","#e08a2e","#2e7d6b","#3d5a99","#8a8f3d"];
+      var SEGCOLORS = ["#7d2233","#e08a2e","#7d2233","#3d5a99","#8a8f3d"];
       var attState = {}; /* code -> {a,l,x} (derived from per-session records) */
       var sessState = {}; /* code -> { planIndex: "a"|"l"|"x" } : which session was missed is kept, not just a count */
       /* ---------- location auto-record (案6+ 無操作・遡り型): no dedicated screen,
@@ -4211,7 +4211,7 @@
          and displays the live ratios for the current combination. */
       var COURSE_HUES = [
         { name:"ローズ",     light:{ bg:"#FDE8E9", ink:"#4D0F1C" }, std:{ bg:"#F0A3AB", ink:"#4D0F1C" }, deep:{ bg:"#A62639", ink:"#FFFFFF" } },
-        { name:"ミント",     light:{ bg:"#E3EFE6", ink:"#173D27" }, std:{ bg:"#A9D3B8", ink:"#173D27" }, deep:{ bg:"#166534", ink:"#FFFFFF" } },
+        { name:"ミント",     light:{ bg:"#f3e4e7", ink:"#173D27" }, std:{ bg:"#A9D3B8", ink:"#173D27" }, deep:{ bg:"#166534", ink:"#FFFFFF" } },
         { name:"クリーム",   light:{ bg:"#FDEEDA", ink:"#4D2F00" }, std:{ bg:"#F2C184", ink:"#4D2F00" }, deep:{ bg:"#8C4300", ink:"#FFFFFF" } },
         { name:"ラベンダー", light:{ bg:"#E6E9FB", ink:"#1D245E" }, std:{ bg:"#B4BDF0", ink:"#1D245E" }, deep:{ bg:"#1D4E9E", ink:"#FFFFFF" } },
         { name:"スカイ",     light:{ bg:"#E8F3F6", ink:"#123D4A" }, std:{ bg:"#A5D2DE", ink:"#123D4A" }, deep:{ bg:"#0F5E5E", ink:"#FFFFFF" } },
@@ -4285,7 +4285,7 @@
       var THEME_PALETTE = [
         { id:"claret", name:"クラレット", main:"#7d2233", deep:"#5f1624", soft:"#f6e3e6", softDark:"#3a1a21" },
         { id:"navy",   name:"ネイビー",   main:"#2c4480", deep:"#1e2f56", soft:"#e3e9f7", softDark:"#232f4d" },
-        { id:"teal",   name:"ティール",   main:"#1f6b5a", deep:"#14473a", soft:"#dcefe6", softDark:"#173a2e" },
+        { id:"teal",   name:"ティール",   main:"#6d1f30", deep:"#14473a", soft:"#f6e8ea", softDark:"#38121b" },
         { id:"forest", name:"フォレスト", main:"#2e6b30", deep:"#1f4a21", soft:"#e2efdc", softDark:"#1d3319" },
         { id:"ochre",  name:"オークル",   main:"#8a5f0f", deep:"#63450a", soft:"#f7ecc8", softDark:"#3d3417" },
         { id:"plum",   name:"プラム",     main:"#6d2f52", deep:"#4c1f38", soft:"#f3dde9", softDark:"#38202f" },
@@ -4347,7 +4347,7 @@
         "理工学部": ["物質生命理工学科", "機能創造理工学科", "情報理工学科"]
       };
       var AVATAR_COLORS = [
-        { id:"teal", name:"ティール", hex:"#1f6b5a" },
+        { id:"teal", name:"ティール", hex:"#6d1f30" },
         { id:"claret", name:"クラレット", hex:"#7d2233" },
         { id:"navy", name:"ネイビー", hex:"#2c4480" },
         { id:"forest", name:"フォレスト", hex:"#2e6b30" },
@@ -5483,7 +5483,7 @@
           '<p style="margin:8px 0 0;font-size:12.5px;opacity:.92">'+(c.period===7 ? DAYS[c.day]+' オンデマンド' : DAYS[c.day]+c.period+'限（'+p.s+'–'+p.e+'）')+'・'+esc(c.room)+' ・ 全'+total+'回</p></div>';
         html += '<p style="font-size:13px;line-height:1.7;margin:0 0 12px">普段は何も押さなくて大丈夫です。学期末にここを開くと、押していなかった回も<b>四谷キャンパスにいた記録から自動で埋まって</b>います。あなたが自分で押した記録は<b>絶対</b>で、自動の記録が上書きすることはありません。違っている回だけ、タップして直せます。</p>';
         html += '<div class="sem-sum">' +
-          '<div class="ss-box"><div class="ss-v" style="color:#2e7d6b">'+cnt.a+'</div><div class="ss-k">出席</div></div>' +
+          '<div class="ss-box"><div class="ss-v" style="color:#7d2233">'+cnt.a+'</div><div class="ss-k">出席</div></div>' +
           '<div class="ss-box"><div class="ss-v" style="color:#a66a12">'+cnt.l+'</div><div class="ss-k">遅刻</div></div>' +
           '<div class="ss-box"><div class="ss-v" style="color:#c22f47">'+cnt.x+'</div><div class="ss-k">欠席</div></div>' +
           '<div class="ss-box"><div class="ss-v">'+cnt.rest+'</div><div class="ss-k">'+(isPsy ? "不明" : "未記録")+'</div></div></div>';
@@ -5491,7 +5491,7 @@
           '<span class="sg-txt">欠席 '+cnt.x+' 回 ／ 上限 '+limit+' 回</span></div>' +
           '<div class="sg-bar"><i style="width:'+(limit>0 ? Math.min(100, cnt.x/limit*100) : 100)+'%"></i></div>' +
           '<p class="sg-note">目安：欠席が全体の1/3（全'+total+'回中 '+limit+'回）を超えると単位を失う科目があります（科目ごとの規定はシラバスで確認）。'+(isPsy ? "" : "この科目のゲージは、記録済みの欠席数をもとに計算しています（未記録は欠席に数えていません）。")+'</p></div>';
-        html += '<div class="sem-legend"><span><i style="background:#2e7d6b"></i>本人記録（濃色）＝絶対・変更不可</span><span><i style="background:#dcefe6;border:1px solid #bcdcc9"></i>四谷キャンパス記録から自動（薄色）</span><span><i style="background:var(--app-line)"></i>'+(isPsy ? "不明" : "未記録")+'</span></div>';
+        html += '<div class="sem-legend"><span><i style="background:#7d2233"></i>本人記録（濃色）＝絶対・変更不可</span><span><i style="background:#f6e8ea;border:1px solid #bcdcc9"></i>四谷キャンパス記録から自動（薄色）</span><span><i style="background:var(--app-line)"></i>'+(isPsy ? "不明" : "未記録")+'</span></div>';
         html += '<div class="sem-grid">' + list.map(function(s, idx){
           var cls, stTxt, srcTxt;
           if (!s.st){ cls = isPsy ? "unk" : "unrec"; stTxt = isPsy ? "不明" : "未記録"; srcTxt = ""; }
@@ -7126,31 +7126,31 @@
       var shareMaster = true;      /* 自分のカレンダーを共有する（全体） */
       /* 自分から相手への見せ方は友達ごとに持つ：各 FRIENDS の myMode（title | busy） */
       var FRIENDS = [
-        { id:"aoi", name:"あおい", userId:"aoi_sophia", initial:"あ", color:"#2e7d6b", fac:"経済学部 1年", mode:"title", share:true, myMode:"title", showFree:true,
+        { id:"aoi", name:"あおい", userId:"aoi_sophia", initial:"あ", color:"#7d2233", fac:"経済学部 1年", mode:"title", share:true, myMode:"title", showFree:true,
           events:[
             { day:0, title:"経済学入門", sub:"6-301", sm:540, em:640, color:"#FDE8E9", kind:"授業" },
             { day:0, title:"英語コミュニケーション", sub:"12-201", sm:810, em:910, color:"#E6E9FB", kind:"授業" },
             { day:1, title:"ミクロ経済学入門", sub:"6-402", sm:540, em:640, color:"#FEF3C7", kind:"授業" },
-            { day:1, title:"統計学入門", sub:"6-305", sm:655, em:755, color:"#E3EFE6", kind:"授業" },
+            { day:1, title:"統計学入門", sub:"6-305", sm:655, em:755, color:"#f3e4e7", kind:"授業" },
             { day:2, title:"経済史入門", sub:"2-301", sm:655, em:755, color:"#F3E8FB", kind:"授業" },
             { day:2, title:"スペイン語基礎", sub:"11-102", sm:925, em:1025, color:"#E8F3F6", kind:"授業" },
             { day:3, title:"経営学入門", sub:"6-304", sm:540, em:640, color:"#FDEEDA", kind:"授業" },
-            { day:3, title:"アルバイト", sub:"カフェ（四ツ谷駅前）", sm:1050, em:1200, color:"#dcefe6", kind:"予定" },
+            { day:3, title:"アルバイト", sub:"カフェ（四ツ谷駅前）", sm:1050, em:1200, color:"#f6e8ea", kind:"予定" },
             { day:4, title:"情報リテラシー", sub:"12-305", sm:810, em:910, color:"#FFF0F0", kind:"授業" },
-            { day:5, title:"アルバイト", sub:"カフェ（四ツ谷駅前）", sm:780, em:1020, color:"#dcefe6", kind:"予定" }
+            { day:5, title:"アルバイト", sub:"カフェ（四ツ谷駅前）", sm:780, em:1020, color:"#f6e8ea", kind:"予定" }
           ] },
         { id:"kenta", name:"けんた", userId:"kenta_law", initial:"け", color:"#3d5a99", fac:"法学部 1年", mode:"busy", share:true, myMode:"busy", showFree:true,
           events:[
             { day:0, title:"法学入門", sub:"2-201", sm:540, em:640, color:"#E6E9FB", kind:"授業" },
             { day:0, title:"民法総則II", sub:"2-401", sm:925, em:1025, color:"#FDEEDA", kind:"授業" },
             { day:1, title:"憲法入門", sub:"2-305", sm:655, em:755, color:"#FDE8E9", kind:"授業" },
-            { day:1, title:"民法ゼミ準備", sub:"図書館", sm:810, em:910, color:"#E3EFE6", kind:"予定" },
+            { day:1, title:"民法ゼミ準備", sub:"図書館", sm:810, em:910, color:"#f3e4e7", kind:"予定" },
             { day:2, title:"英語", sub:"11-204", sm:540, em:640, color:"#E8F3F6", kind:"授業" },
             { day:2, title:"政治学入門", sub:"2-410", sm:925, em:1025, color:"#FEF3C7", kind:"授業" },
             { day:3, title:"刑法入門", sub:"2-208", sm:655, em:755, color:"#F3E8FB", kind:"授業" },
-            { day:3, title:"アルバイト", sub:"塾（四ツ谷）", sm:1050, em:1230, color:"#dcefe6", kind:"予定" },
+            { day:3, title:"アルバイト", sub:"塾（四ツ谷）", sm:1050, em:1230, color:"#f6e8ea", kind:"予定" },
             { day:4, title:"国際法入門", sub:"2-312", sm:810, em:910, color:"#FFF0F0", kind:"授業" },
-            { day:5, title:"図書館で勉強", sub:"中央図書館", sm:600, em:720, color:"#E3EFE6", kind:"予定" }
+            { day:5, title:"図書館で勉強", sub:"中央図書館", sm:600, em:720, color:"#f3e4e7", kind:"予定" }
           ] },
         { id:"misaki", name:"みさき", userId:"misaki_fr", initial:"み", color:"#b98a2f", fac:"外国語学部 1年", mode:"title", share:true, myMode:"title", showFree:true,
           events:[
@@ -7158,9 +7158,9 @@
             { day:0, title:"言語学入門", sub:"11-105", sm:810, em:910, color:"#E6E9FB", kind:"授業" },
             { day:1, title:"英語ライティング", sub:"12-110", sm:540, em:640, color:"#FEF3C7", kind:"授業" },
             { day:1, title:"フランス文学入門", sub:"11-208", sm:925, em:1025, color:"#F3E8FB", kind:"授業" },
-            { day:2, title:"文化人類学入門", sub:"6-410", sm:810, em:910, color:"#E3EFE6", kind:"授業" },
+            { day:2, title:"文化人類学入門", sub:"6-410", sm:810, em:910, color:"#f3e4e7", kind:"授業" },
             { day:3, title:"フランス語会話", sub:"11-302", sm:655, em:755, color:"#E8F3F6", kind:"授業" },
-            { day:3, title:"サークル（合唱）", sub:"音楽練習室", sm:1040, em:1140, color:"#dcefe6", kind:"予定" },
+            { day:3, title:"サークル（合唱）", sub:"音楽練習室", sm:1040, em:1140, color:"#f6e8ea", kind:"予定" },
             { day:4, title:"比較文化論", sub:"11-210", sm:810, em:910, color:"#FFF0F0", kind:"授業" }
           ] },
         { id:"yuki", name:"ゆうき", userId:"yuki_sgs", initial:"ゆ", color:"#8a5a7d", fac:"総合グローバル学部 1年", mode:"off", share:false, myMode:"title", showFree:true, events:[] }
@@ -7400,22 +7400,22 @@
           events:[
             { day:0, title:"英文学入門", sub:"11-305", sm:655, em:755, color:"#FDE8E9", kind:"授業" },
             { day:1, title:"英語コミュニケーション", sub:"12-201", sm:810, em:910, color:"#E6E9FB", kind:"授業" },
-            { day:2, title:"哲学入門", sub:"11-410", sm:540, em:640, color:"#E3EFE6", kind:"授業" },
-            { day:3, title:"サークル（文芸）", sub:"学生会館", sm:1040, em:1140, color:"#dcefe6", kind:"予定" },
+            { day:2, title:"哲学入門", sub:"11-410", sm:540, em:640, color:"#f3e4e7", kind:"授業" },
+            { day:3, title:"サークル（文芸）", sub:"学生会館", sm:1040, em:1140, color:"#f6e8ea", kind:"予定" },
             { day:4, title:"国文学入門", sub:"11-208", sm:655, em:755, color:"#FEF3C7", kind:"授業" }
           ] },
         { id:"ren", name:"れん", userId:"ren_0421", initial:"れ", color:"#2c6e9b", fac:"理工学部 1年", note:"数学の授業が同じ", chip:"昼休み 空き",
           events:[
             { day:0, title:"微分積分学", sub:"12-502", sm:540, em:640, color:"#E6E9FB", kind:"授業" },
             { day:1, title:"物理学入門", sub:"12-401", sm:655, em:755, color:"#FDE8E9", kind:"授業" },
-            { day:2, title:"プログラミング基礎", sub:"12-305", sm:925, em:1025, color:"#E3EFE6", kind:"授業" },
+            { day:2, title:"プログラミング基礎", sub:"12-305", sm:925, em:1025, color:"#f3e4e7", kind:"授業" },
             { day:4, title:"線形代数学", sub:"12-502", sm:810, em:910, color:"#FFF0F0", kind:"授業" }
           ] },
         { id:"hana", name:"はな", userId:"hana_2026", initial:"は", color:"#7a9a2e", fac:"総合人間科学部 1年", note:"心理学概論が同じ", chip:"2限〜 空き",
           events:[
             { day:0, title:"心理学概論", sub:"11-401", sm:540, em:640, color:"#FEF3C7", kind:"授業" },
             { day:2, title:"教育学入門", sub:"11-302", sm:810, em:910, color:"#F3E8FB", kind:"授業" },
-            { day:3, title:"アルバイト", sub:"書店（神保町）", sm:1050, em:1200, color:"#dcefe6", kind:"予定" },
+            { day:3, title:"アルバイト", sub:"書店（神保町）", sm:1050, em:1200, color:"#f6e8ea", kind:"予定" },
             { day:4, title:"社会学入門", sub:"6-410", sm:655, em:755, color:"#E8F3F6", kind:"授業" }
           ] },
         { id:"sota", name:"そうた", userId:"sota_sophia", initial:"そ", color:"#5a7d2e", fac:"経済学部 2年", note:"ゼミの先輩", chip:"金曜 午前 空き",
