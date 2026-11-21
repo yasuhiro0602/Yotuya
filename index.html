@@ -1945,6 +1945,18 @@
         border:0; border-radius:999px; background:var(--claret); color:#fff; cursor:pointer; font-family:inherit;
         font-size:13.5px; font-weight:900; padding:11px 14px; min-height:46px; }
       .profile-edit-btn:active{ transform:scale(.985); }
+      /* ===== アカウント（Firebaseログイン）カード ===== */
+      .fb-acct-row{ display:flex; gap:12px; align-items:center; }
+      .fb-acct-txt{ flex:1; min-width:0; }
+      .fb-acct-name{ font-size:15px; font-weight:900; line-height:1.4; overflow-wrap:anywhere; }
+      .fb-acct-meta{ font-size:12px; color:var(--app-sub); line-height:1.6; overflow-wrap:anywhere; }
+      .fb-acct-photo{ width:44px; height:44px; border-radius:50%; object-fit:cover; flex:0 0 auto; }
+      .fb-logout-btn{ display:flex; align-items:center; justify-content:center; width:100%; margin-top:13px;
+        border:1.5px solid var(--app-line); border-radius:999px; background:transparent; color:var(--app-ink);
+        cursor:pointer; font-family:inherit; font-size:13.5px; font-weight:900; padding:11px 14px; min-height:46px; }
+      .fb-logout-btn:active{ transform:scale(.985); }
+      .fb-acct-status{ font-size:12px; color:var(--app-sub); line-height:1.6; margin-top:8px; }
+      .fb-acct-status:empty{ display:none; }
       .pf-preview{ display:flex; align-items:center; gap:12px; }
       .pf-preview .pv-name{ font-size:15.5px; font-weight:900; line-height:1.4; overflow-wrap:anywhere; }
       .pf-preview .pv-meta{ font-size:11.5px; color:var(--app-sub); margin-top:2px; line-height:1.55; }
@@ -3187,7 +3199,7 @@
                 <div class="cand-list" id="friend-id-results" aria-live="polite">
                   <p class="cand-none">サンプルID：<b>@sakura_sophia</b>（さくら）、<b>@ren_0421</b>（れん）、<b>@hana_2026</b>（はな）、<b>@sota_sophia</b>（そうた）の一部を打つと候補が出ます。</p>
                 </div>
-                <p class="share-mock">モック：QRコードは見た目の再現です（実アプリでは @ID が埋め込まれます）。検索で出る相手・追加される友だちはすべてサンプルで、この画面を開いている間だけ保持されます。</p>
+                <p class="share-mock">ログインすると、あなたのQRコードと @ID は本物になります（QRコードには @ID が埋め込まれています）。いまのところ検索で出る相手・追加される友だちはサンプルです（登録したユーザーの検索は次のステップで対応します）。</p>
               </div>
             </div>
           </div>
@@ -3209,7 +3221,7 @@
                 </div>
               </div>
               <p class="share-note">相手にこの画面を見せて、「QRを読み取る」で読み取ってもらうと友だちに追加されます。離れている相手には @ID を伝えて、ID検索から追加してもらえます。</p>
-              <p class="src-note" style="margin-top:10px">モック：このQRコードは見た目の再現で、実際に読み取れるコードではありません。実アプリでは @ID が埋め込まれます。表示名・@ID・アイコンはマイページの「プロフィールを編集」から変更でき、変えるとこのQRも連動します。</p>
+              <p class="src-note" style="margin-top:10px">ログイン中は、@ID が埋め込まれた本物のQRコードです。未ログイン時は見た目の再現（モック）で、実際に読み取れるコードではありません。表示名・@ID・アイコンはマイページの「プロフィールを編集」から変更でき、変えるとこのQRも連動します。</p>
             </div>
           </div>
 
@@ -3777,6 +3789,27 @@
                 </span>
               </div>
               <button type="button" class="profile-edit-btn" id="btn-profile-edit"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>プロフィールを編集</button>
+            </div>
+            <div class="acard" id="account-card" aria-label="アカウント">
+              <h3>アカウント</h3>
+              <div id="fb-logged-out">
+                <p>Googleアカウントでログインすると、あなたの @ID とQRコードが本物になります。@ID を伝えたりQRコードを見せたりして、実際に友だちとつながれるようになります。</p>
+                <button type="button" class="profile-edit-btn" id="btn-google-login">Googleでログイン</button>
+                <p class="fb-acct-status" id="fb-login-status" role="status"></p>
+              </div>
+              <div id="fb-logged-in" hidden>
+                <div class="fb-acct-row">
+                  <img class="fb-acct-photo" id="fb-photo" alt="" hidden />
+                  <span class="avatar" id="fb-avatar" style="background:#6d1f30;width:44px;height:44px;font-size:17px">？</span>
+                  <span class="fb-acct-txt">
+                    <span class="fb-acct-name" id="fb-name" style="display:block"></span>
+                    <span class="fb-acct-meta" id="fb-id" style="display:block"></span>
+                    <span class="fb-acct-meta" id="fb-email" style="display:block"></span>
+                  </span>
+                </div>
+                <button type="button" class="fb-logout-btn" id="btn-logout">ログアウト</button>
+                <p class="fb-acct-status" id="fb-acct-note" role="status"></p>
+              </div>
             </div>
             <div class="acard" id="startup-card">
               <h3>起動時に開く画面</h3>
@@ -4382,6 +4415,9 @@
         var bio = document.getElementById("me-bio"); if (bio) bio.textContent = profile.bio || "";
         var cl = document.getElementById("me-campus-label"); if (cl) cl.textContent = "上智大学 " + profile.campus + "キャンパス";
       }
+      /* Firebase連携モジュール（末尾の module スクリプト）から
+         プロフィールカードを描き直すための橋渡し。 */
+      window.__renderProfileCard = renderProfileCard;
       /* 履修登録モジュールから所属（学部・学科・学年）が変わった時に呼ばれる。
          こちらではカード表示だけ更新する（履修登録側へは戻さない＝無限ループ防止）。 */
       window.__profileFromRg = function(faculty, dept, year){
@@ -7383,6 +7419,37 @@
         }
         finder(0, 0); finder(N - 7, 0); finder(0, N - 7);
       }
+      /* 自分のQRを描く：ログイン中（window.__fbAccount あり）は
+         @ID を埋め込んだ本物のQRコード、未ログイン時は従来の
+         モックパターンを描く。 */
+      function drawMyQR(canvas){
+        if (!canvas) return;
+        if (window.__fbAccount && window.__fbAccount.username){
+          if (drawRealQR(canvas, window.__fbAccount.username)) return;
+        }
+        drawMockQR(canvas, "sophia-friend:@" + profile.userId);
+      }
+      /* qrcode-generator（CDN）で本物のQRコードを canvas に描く。
+         描けたら true、ライブラリ未読込・容量超過などの失敗時は false
+         （呼び出し側でモック表示にフォールバックする）。 */
+      function drawRealQR(canvas, text){
+        if (!canvas || !canvas.getContext) return false;
+        if (typeof window.qrcode !== "function") return false;
+        try {
+          var qr = window.qrcode(0, "M");
+          qr.addData(text);
+          qr.make();
+          var count = qr.getModuleCount();
+          var size = canvas.width, cell = size / count;
+          var ctx = canvas.getContext("2d");
+          ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, size, size);
+          ctx.fillStyle = "#191920";
+          for (var r = 0; r < count; r++) for (var c = 0; c < count; c++){
+            if (qr.isDark(r, c)) ctx.fillRect(c * cell, r * cell, cell + 0.6, cell + 0.6);
+          }
+          return true;
+        } catch (e) { return false; }
+      }
       function renderMyIdentity(){
         var av = document.getElementById("fr-my-avatar");
         if (av){ av.textContent = profile.initial; av.style.background = avatarHex(); }
@@ -7392,8 +7459,8 @@
         if (bav){ bav.textContent = profile.initial; bav.style.background = avatarHex(); }
         var bnm = document.getElementById("myqr-name"); if (bnm) bnm.textContent = profile.name;
         var bid = document.getElementById("myqr-id"); if (bid) bid.textContent = "@" + profile.userId;
-        drawMockQR(document.getElementById("my-qr-mini"), "sophia-friend:@" + profile.userId);
-        drawMockQR(document.getElementById("my-qr-big"), "sophia-friend:@" + profile.userId);
+        drawMyQR(document.getElementById("my-qr-mini"));
+        drawMyQR(document.getElementById("my-qr-big"));
       }
       var CANDIDATES = [
         { id:"sakura", name:"さくら", userId:"sakura_sophia", initial:"さ", color:"#c2516e", fac:"文学部 1年", note:"英語コミュニケーションが同じ", chip:"4限〜 空き",
@@ -16247,5 +16314,148 @@ html, body{ overflow-x:hidden !important; }
   }
 })();
 </script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script type="module">
+      /* ============================================================
+         Firebase連携 v1（ログイン／プロフィール／本物QR）
+         ・Googleログイン（Firebase Authentication）
+         ・初回ログイン時に Firestore の users/{uid} を作成し、
+           username・displayName・photoURL を保存する
+         ・ログイン中はアプリ内の profile（表示名・@ID）を登録情報に
+           差し替え、QRコードも @ID 入りの本物にする
+         ・Firebase が読み込めない環境（オフライン等）では何もせず、
+           従来のモック表示のままアプリは動作する
+         ============================================================ */
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDtPPufw_0PpUOIpK8DhkKwzlEXAC9C6Ow",
+        authDomain: "yotuya-b7aa2.firebaseapp.com",
+        projectId: "yotuya-b7aa2",
+        storageBucket: "yotuya-b7aa2.firebasestorage.app",
+        messagingSenderId: "876585514925",
+        appId: "1:876585514925:web:3f854d337e3b809bb8d324",
+        measurementId: "G-V8JG4EDDCN"
+      };
+
+      const el = (id) => document.getElementById(id);
+      const loginStatus = el("fb-login-status");
+      const setLoginStatus = (msg) => { if (loginStatus) loginStatus.textContent = msg || ""; };
+
+      let auth = null;
+      let db = null;
+      try {
+        const app = initializeApp(firebaseConfig);
+        auth = getAuth(app);
+        db = getFirestore(app);
+      } catch (e) {
+        console.warn("Firebaseの初期化に失敗しました（従来表示のまま動作します）", e);
+        setLoginStatus("ログイン機能を読み込めませんでした。通信環境を確認してください。");
+      }
+
+      /* ログアウト時にモック表示へ戻すための控え */
+      const prof = window.__profile || null;
+      const mockSnapshot = prof ? { name: prof.name, userId: prof.userId, initial: prof.initial } : null;
+
+      function refreshAppProfile() {
+        if (typeof window.__renderProfileCard === "function") {
+          try { window.__renderProfileCard(); } catch (e) { /* 既存描画の失敗を連携側に伝播させない */ }
+        }
+      }
+
+      function makeUsername(uid) {
+        return "u_" + String(uid).slice(0, 8).toLowerCase();
+      }
+
+      /* 初回ログインなら users/{uid} を作成し、登録済みプロフィールを返す */
+      async function ensureUserDoc(user) {
+        const ref = doc(db, "users", user.uid);
+        const snap = await getDoc(ref);
+        if (snap.exists()) return snap.data();
+        const data = {
+          username: makeUsername(user.uid),
+          displayName: user.displayName || "",
+          photoURL: user.photoURL || "",
+          createdAt: serverTimestamp()
+        };
+        await setDoc(ref, data);
+        return data;
+      }
+
+      function applyLoggedIn(user, data) {
+        const username = (data && data.username) || makeUsername(user.uid);
+        const displayName = (data && data.displayName) || user.displayName || "";
+        const photoURL = (data && data.photoURL) || user.photoURL || "";
+        window.__fbAccount = { uid: user.uid, username: username, displayName: displayName, email: user.email || "", photoURL: photoURL };
+        if (prof) {
+          if (displayName) prof.name = displayName;
+          prof.userId = username;
+          prof.initial = (prof.name || "？").charAt(0);
+        }
+        refreshAppProfile();
+        const out = el("fb-logged-out"); if (out) out.hidden = true;
+        const inn = el("fb-logged-in"); if (inn) inn.hidden = false;
+        const nm = el("fb-name"); if (nm) nm.textContent = displayName || "（名前未設定）";
+        const idEl = el("fb-id"); if (idEl) idEl.textContent = "@" + username;
+        const em = el("fb-email"); if (em) em.textContent = user.email || "";
+        const img = el("fb-photo");
+        const av = el("fb-avatar");
+        if (img && av) {
+          if (photoURL) { img.src = photoURL; img.hidden = false; av.hidden = true; }
+          else { img.hidden = true; av.hidden = false; av.textContent = (displayName || "？").charAt(0); }
+        }
+        const mini = el("my-qr-mini"); if (mini) mini.setAttribute("aria-label", "自分のQRコード");
+        const big = el("my-qr-big"); if (big) big.setAttribute("aria-label", "自分のQRコード（拡大表示）");
+        setLoginStatus("");
+      }
+
+      function applyLoggedOut() {
+        window.__fbAccount = null;
+        if (prof && mockSnapshot) {
+          prof.name = mockSnapshot.name;
+          prof.userId = mockSnapshot.userId;
+          prof.initial = mockSnapshot.initial;
+        }
+        refreshAppProfile();
+        const out = el("fb-logged-out"); if (out) out.hidden = false;
+        const inn = el("fb-logged-in"); if (inn) inn.hidden = true;
+        const mini = el("my-qr-mini"); if (mini) mini.setAttribute("aria-label", "自分のQRコード（モック）");
+        const big = el("my-qr-big"); if (big) big.setAttribute("aria-label", "自分のQRコード（モック・拡大表示）");
+      }
+
+      if (auth && db) {
+        onAuthStateChanged(auth, async (user) => {
+          if (!user) { applyLoggedOut(); return; }
+          try {
+            const data = await ensureUserDoc(user);
+            applyLoggedIn(user, data);
+          } catch (e) {
+            console.warn("プロフィールの読み込みに失敗しました", e);
+            applyLoggedIn(user, null);
+            const note = el("fb-acct-note");
+            if (note) note.textContent = "プロフィールの保存・読み込みに失敗しました。通信環境を確認してください。";
+          }
+        });
+
+        const loginBtn = el("btn-google-login");
+        if (loginBtn) loginBtn.addEventListener("click", async () => {
+          setLoginStatus("Googleのログイン画面を開いています…");
+          try {
+            await signInWithPopup(auth, new GoogleAuthProvider());
+            setLoginStatus("");
+          } catch (e) {
+            console.warn("ログインに失敗しました", e);
+            setLoginStatus("ログインできませんでした。通信環境を確認して、もう一度お試しください。");
+          }
+        });
+
+        const logoutBtn = el("btn-logout");
+        if (logoutBtn) logoutBtn.addEventListener("click", async () => {
+          try { await signOut(auth); } catch (e) { console.warn("ログアウトに失敗しました", e); }
+        });
+      }
+    </script>
 </body>
 </html>
