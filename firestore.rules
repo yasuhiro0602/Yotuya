@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ユーザープロフィール（検索・QR用に公開する情報だけを置く）
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if request.auth != null && request.auth.uid == userId;
+
+      // 友だちリスト：原則は本人のみ読み書き可。
+      // 例外：ドキュメントIDが「自分自身のuid」の場合に限り、相手のリストへの
+      // 作成・削除を許可する（承認時の相互追加／解除時の相互削除のため）。
+      match /friends/{friendId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow create, delete: if request.auth != null && request.auth.uid == friendId;
+      }
+
+      // 届いた友だち申請：作成は申請者本人（ドキュメントID＝申請者のuid）のみ。
+      // 読み取りは受信者本人のみ。削除は受信者本人と申請者本人（取り消し）が可。
+      match /requests/{fromId} {
+        allow create: if request.auth != null && request.auth.uid == fromId;
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow delete: if request.auth != null
+          && (request.auth.uid == userId || request.auth.uid == fromId);
+      }
+
+      // 自分が送った申請のマーカー：本人のみ読み書き可。
+      // 例外：マーカーの相手（ドキュメントID＝自分）による削除だけ許可する
+      // （承認・拒否した側が、申請者のマーカーを消せるようにするため）。
+      match /sent/{targetId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+        allow delete: if request.auth != null && request.auth.uid == targetId;
+      }
+    }
+
+    // 授業レビュー（全員で共有）：閲覧はログイン中のみ。
+    // 作成は投稿データの uid が自分自身のときのみ。更新・削除は自分の投稿のみ
+    // （更新で uid を他人に付け替えることも不可）。
+    match /reviews/{reviewId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.auth.uid == request.resource.data.uid;
+      allow update: if request.auth != null
+        && request.auth.uid == resource.data.uid
+        && request.auth.uid == request.resource.data.uid;
+      allow delete: if request.auth != null
+        && request.auth.uid == resource.data.uid;
+    }
+
+    // それ以外は全部拒否
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
